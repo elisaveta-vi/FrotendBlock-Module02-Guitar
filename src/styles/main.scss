@@ -1,7 +1,101 @@
-@import'font';
-@import'var';
+@use'font';
+@use'var';
+
+
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+
 
 body {
-	font-family: $font;
-	color: $accent;
+	font-weight: 400;
+	font-family: var.$font;
+	color: var.$accent;
+	margin: 0;
 }
+
+.header {
+	display: flex;
+	align-items: stretch;
+	justify-content: space-between;
+	height: 71px;
+	position: relative;
+	&::before{
+		content:'';
+		width: 100%;
+		height: 27px;
+		position: absolute;
+		top: 0;
+		z-index: -1;
+		background-color: var.$accent;
+		display: block;
+	}
+	
+	
+	&__logo {
+		background-color: var.$accent;
+		padding: 17px 45px 0px 45px;
+		border-radius: 10px 0 0 0;
+		position: relative;
+		&::before{
+			content: '';
+			display: block;
+			width: 26px;
+			height: 24px;
+			background: url('../images/header_bottom_left.svg');
+			position: absolute;
+			background-repeat: no-repeat;
+			background-size:contain;
+			bottom: -24px;
+			left: 0;
+		}
+		&::after{
+			content: '';
+			display: block;
+			width: 71px;
+			height: 71px;
+			background-image: url('../images/header_left_center.svg');
+			position: absolute;
+			right: -71px;
+			top: 0;
+		}
+	}
+	&__link {
+		color:var.$light;
+		font-size: 20px;
+		text-underline-offset:6px;
+		background-color: var.$accent;
+		padding: 17px 55px 0px 35px;
+		border-radius: 0 10px 0 0;
+		position: relative;
+		&::before{
+			content: '';
+			display: block;
+			width: 71px;
+			height: 71px;
+			background-image: url('../images/header_right_center.svg');
+			position: absolute;
+			left: -71px;
+			top: 0;
+		}
+		&::after{
+			content: '';
+			display: block;
+			width: 26px;
+			height: 24px;
+			background: url('../images/header_bottom_right.svg');
+			position: absolute;
+			background-repeat: no-repeat;
+			background-size:contain;
+			bottom: -24px;
+			right: 0;
+		}
+	}
+
+
+	}
