@@ -10,14 +10,25 @@
 	border: 0;
 	box-sizing: border-box;
 }
+a{
+	text-decoration: none;
+}
 
+.title-h2{
+font-weight: 700;
+font-size: 32px;
+letter-spacing: 0.05em;
+text-transform: uppercase;
+}
 
 body {
 	font-weight: 400;
+	line-height: 1.1;
 	font-family: var.$font;
 	color: var.$light;
 	margin: 0;
 	background-color: #1F2023;
+	overflow-x: hidden;
 }
 
 .header {
@@ -125,6 +136,9 @@ body {
 
 		&__main{
 			flex-basis: 60%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
 		}
 		&__info{
 			flex-basis: calc(40% - 50px);
@@ -135,19 +149,17 @@ body {
 &__title{
 	font-weight: 700;
 	font-size: 64px;
-	line-height: 110%;
 	margin-bottom: 20px;
 }
 &__box{
-	margin-bottom: 135px;
+	
 }
 &__btn{
 	display: block;
 	width: 100%;
 	font-weight: 600;
 	font-size: 20px;
-	line-height: 110%;
-	letter-spacing: 1px;
+	letter-spacing: 4.8px;
 	text-transform: uppercase;
 	background-color: var.$accent;
 	color: var.$light;
@@ -223,13 +235,11 @@ body {
 &__text{
 	font-weight: 200;
 	font-size: 24px;
-	line-height: 110%;
-
 span{
 	display: block;
 	font-weight: 700;
 	font-size: 32px;
-	margin-top: 20px;
+	margin-top: 15px;
 	}
 		}
 
@@ -287,7 +297,6 @@ span{
 		&__title{
 			font-weight: 400;
 			font-size: 24px;
-			line-height: 110%;
 			letter-spacing: 0.05em;
 			text-transform: uppercase;
 			margin-bottom: 30px;
@@ -305,4 +314,165 @@ span{
 	}
 	
 	}
-// ______________________________________________
+// --------tag---------
+
+.tag{
+	display: flex;
+	gap: 64px;
+	animation: move-left 20s infinite linear alternate;
+	margin-top: 150px;
+	margin-bottom: 150px;
+	&:hover{
+		animation-play-state: paused;
+	}
+	&__text{
+font-weight: 200;
+font-size: 24px;
+color: var.$grey;
+padding: 10px 20px;
+border: 1px solid var.$grey;
+border-radius: 50px;
+position: relative;
+&::before{
+	content: '';
+	position: absolute;
+	display: block;
+	height: 16px;
+	width: 16px;
+	background-color: var.$accent;
+	border-radius: 100%;
+	left: -40px;
+	top: calc(50% - 8px);
+}
+
+	}
+}
+@keyframes move-left {
+	0% {
+		transform: translate(100%,0);
+	}
+	100% {
+		transform: translate(-100%,0);
+	}
+}
+
+// -----course---------
+.course{
+	display: flex;
+	gap: 70px;
+	&__title{
+		flex-basis: 395px;
+	}
+	&__title-h2{
+		margin-bottom: 31px;
+	}
+	&__content{
+		flex-basis:calc(100% - 395px - 70px);
+		width: calc(100% - 395px - 70px);
+	}
+}
+
+// --------course-control--------
+.course-control{
+display: flex;
+gap: 20px;
+align-items: center;
+height: 70px;
+&__prev, &__next{
+	width: 70px;
+	height: 70px;
+	background-color: transparent;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 1px solid var.$light;
+	border-radius: 100%;
+	right: inherit;
+	left: inherit;
+	position: inherit;
+	transition: var.$tr;
+	&:hover{
+		background-color: var.$accent;
+		border-color: var.$accent;
+	}
+	
+	&::after{
+		content: '';
+		display: block;
+		width: 49px;
+		height: 24px;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+}
+&__prev{
+	&::after{
+		background-image: url('../images/ui/arrow-prev.svg');
+	}
+	
+}
+&__next{
+	&::after{
+		background-image: url('../images/ui/arrow-next.svg');
+	}
+	
+}
+}
+
+// --------slider-teacher--------
+.slider-teacher{
+	&__item{
+		height: 707px;
+		background-color: var.$dark;
+		border: 1px solid var.$dark;
+		border-radius: 50px;
+		position: relative;
+		overflow: hidden;
+		transition: var.$tr;
+		&:hover{
+			border-color: var.$accent;
+			.slider-teacher__name,
+			.slider-teacher__grid,
+			{
+				opacity: 1;
+			}
+		}
+	}
+	&__grid{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
+		opacity: 0;
+		transition: var.$tr;
+	}
+	&__img{
+		width: 100%;
+		height: 637px;
+		object-fit: cover;
+		position: absolute;
+		bottom: 0;
+	}
+	&__name{
+		width: 100%;
+		position: absolute;
+		left: 30px;
+		bottom: 30px;
+		font-size: 24px;
+		opacity: 0;
+		transition: var.$tr;
+		z-index: 1;
+		&::before{
+			content:'';
+			display: block;
+			width: 100%;
+			height: 637px;
+background: linear-gradient(42deg, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.00) 59.08%);
+background-repeat: no-repeat;
+position: absolute;
+left: -30px;
+bottom: -30px;
+z-index: -1;
+		}
+	}
+}
