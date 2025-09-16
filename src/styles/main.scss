@@ -89,7 +89,7 @@ body {
 			}
 		}
 	}
-	&__link {
+	&__link{
 		color:var.$light;
 		font-size: 20px;
 		text-underline-offset:6px;
@@ -97,6 +97,10 @@ body {
 		padding: 17px 55px 0px 35px;
 		border-radius: 0 10px 0 0;
 		position: relative;
+		transition: var.$tr;
+		&:hover{
+			text-decoration: underline;
+		}
 		&::before{
 			content: '';
 			display: block;
@@ -119,6 +123,7 @@ body {
 			bottom: -24px;
 			right: 0;
 		}
+		
 	}
 
 
@@ -791,6 +796,13 @@ transition: var.$tr;
 
 // ------footer----------
 .footer {
+display: grid;
+grid-template-columns: 1fr 450px;
+gap: 10px 20px;
+background: var.$dark;
+padding: 30px 50px;
+margin-bottom: 30px;
+border-radius: var.$br-min;
 
 	// .footer__logo
 
@@ -810,36 +822,52 @@ transition: var.$tr;
 	// .footer__social
 
 	&__social {
-	}
-
-	// .footer__info
-
-	&__info {
+		justify-self: end;
 	}
 
 	// .footer__text
 
 	&__text {
+		& + &{
+			margin-top: 6px;
+		}
 	}
+
 
 	// .footer__link
 
 	&__link {
+		color: var.$accent;
+		// box-shadow: 0 4px -3px var.$accent;
+		border-bottom: 1px solid var.$accent;
+		transition: var.$tr;
+		&:hover{
+			// box-shadow: 0 4px -3px transparent;
+			border-bottom: 1px solid transparent;
+		}
 		
 	}
 
 	// .footer__copy
 
 	&__copy {
+		text-align: right;
+		align-self: end;
+
 	}
 }
 
 // -------social--------------
 .social {
-
+display: flex;
+align-items: center;
+justify-content: flex-end;
+gap: 11px;
 	// .social__link
 	&__link {
-		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: center;		
 		background-color: var.$light;
 		background-repeat: no-repeat;
 		width: 44px;
@@ -856,7 +884,6 @@ transition: var.$tr;
 		&::after{
 			content: '';
 			position: absolute;
-			top: calc(50% - 13px);
 			left: calc(50% - 13px);
 			display: block;
 			background-color: var.$accent;
@@ -870,7 +897,7 @@ transition: var.$tr;
 			&::after{
 				width: 27.125px;
 				height: 27.125px;
-				
+				top: calc(50% - 13px);
 				mask-image: url('../images/social/wa.svg');
 				-webkit-mask-image: url('../images/social/wa.svg');
 			}
@@ -882,6 +909,7 @@ transition: var.$tr;
 			&::after{
 				width: 31.25px;
 				height: 18.75px;
+				top: calc(50% - 9px);
 				mask-image: url('../images/social/vk.svg');
 				-webkit-mask-image: url('../images/social/vk.svg');
 
@@ -893,6 +921,7 @@ transition: var.$tr;
 			&::after{
 				width: 25px;
 				height: 21.88px;
+				top: calc(50% - 10px);
 				mask-image: url('../images/social/tg.svg');
 				-webkit-mask-image: url('../images/social/tg.svg');
 
