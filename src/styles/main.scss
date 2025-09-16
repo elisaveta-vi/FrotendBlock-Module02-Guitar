@@ -165,9 +165,7 @@ body {
 	font-size: 64px;
 	margin-bottom: 20px;
 }
-&__box{
-	
-}
+
 &__btn{
 	display: block;
 	width: 100%;
@@ -588,11 +586,7 @@ padding: 30px;
 background-color: var.$light;
 	}
 
-	// .steps__icon
-
-	&__icon {
-	}
-
+	
 	// .steps__text
 	&__text {
 font-size: 16px;
@@ -600,10 +594,6 @@ line-height: 150%;
 color: var.$dark;
 margin-top: 20px;
 	}
-}
-.container {
-}
-.title-h2 {
 }
 
 // -- -- section result -- --
