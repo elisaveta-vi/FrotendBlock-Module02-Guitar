@@ -874,7 +874,6 @@ gap: 11px;
 		&::after{
 			content: '';
 			position: absolute;
-			left: calc(50% - 13px);
 			display: block;
 			background-color: var.$accent;
 			mask: center center/100% no-repeat;
@@ -887,7 +886,6 @@ gap: 11px;
 			&::after{
 				width: 27.125px;
 				height: 27.125px;
-				top: calc(50% - 13px);
 				mask-image: url('../images/social/wa.svg');
 				-webkit-mask-image: url('../images/social/wa.svg');
 			}
@@ -899,7 +897,6 @@ gap: 11px;
 			&::after{
 				width: 31.25px;
 				height: 18.75px;
-				top: calc(50% - 9px);
 				mask-image: url('../images/social/vk.svg');
 				-webkit-mask-image: url('../images/social/vk.svg');
 
@@ -911,7 +908,6 @@ gap: 11px;
 			&::after{
 				width: 25px;
 				height: 21.88px;
-				top: calc(50% - 10px);
 				mask-image: url('../images/social/tg.svg');
 				-webkit-mask-image: url('../images/social/tg.svg');
 
